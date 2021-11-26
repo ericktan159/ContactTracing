@@ -1,0 +1,57 @@
+Section 1:
+Name: 	FFFFFFFFFFFFFFFF		
+Age: 	
+Contact Number: 	
+E-Mail: 	
+Gender: 	
+Date: 	Friday, November 26, 2021
+Barangay: 	
+
+*Health Condition	
+If Has Fever: 	
+If Has Dry Cough 	
+If Has Sore Throat: 	
+If Has Tiredines: 	
+
+END_OF_SECTION_1
+
+
+
+Section 2:
+Name: 	GGGGGGGGGGGG		
+Age: 	
+Contact Number: 	
+E-Mail: 	
+Gender: 	
+Date: 	Friday, November 26, 2021
+Barangay: 	
+
+*Health Condition	
+If Has Fever: 	
+If Has Dry Cough 	
+If Has Sore Throat: 	
+If Has Tiredines: 	
+
+END_OF_SECTION_2
+
+
+
+Section 3:
+Name: 	AASDDDDDDD		
+Age: 	
+Contact Number: 	
+E-Mail: 	
+Gender: 	
+Date: 	Friday, November 26, 2021
+Barangay: 	
+
+*Health Condition	
+If Has Fever: 	
+If Has Dry Cough 	
+If Has Sore Throat: 	
+If Has Tiredines: 	
+
+END_OF_SECTION_3
+
+
+

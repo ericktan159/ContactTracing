@@ -1,0 +1,16 @@
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\bin\Debug\netcoreapp3.1\MyContactTracing.exe
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\bin\Debug\netcoreapp3.1\MyContactTracing.deps.json
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\bin\Debug\netcoreapp3.1\MyContactTracing.runtimeconfig.json
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\bin\Debug\netcoreapp3.1\MyContactTracing.runtimeconfig.dev.json
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\bin\Debug\netcoreapp3.1\MyContactTracing.dll
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\bin\Debug\netcoreapp3.1\MyContactTracing.pdb
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.csproj.AssemblyReference.cache
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.Form1.resources
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.csproj.GenerateResource.cache
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.GeneratedMSBuildEditorConfig.editorconfig
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.AssemblyInfoInputs.cache
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.AssemblyInfo.cs
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.csproj.CoreCompileInputs.cache
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.dll
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.pdb
+E:\AdminFileFolder\AlphaSource\repos\MyRepos\MyContactTracing\MyContactTracing\obj\Debug\netcoreapp3.1\MyContactTracing.genruntimeconfig.cache
