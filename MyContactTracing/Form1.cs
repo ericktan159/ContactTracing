@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
-
+using System.Linq;
 
 
 
@@ -39,21 +39,24 @@ namespace MyContactTracing
         {
 
 
-            String my_Path = "MyFile.txt";
+            //String my_Path = "MyFile.txt";
             String fileName = "App_records.txt";
             String currentSectionNumFile = "currentSectionNumber.txt";
             String cntrFromFile = "";
 
-            inputGender = rdBtnMale_Gender.Checked ? "Male" : rdBtnFemale_Gender.Checked ? "Female" : "";
-            isFever_Str = rdBtnYes_Fever.Checked ? "Yes" : rdBtnNo_Fever.Checked ? "No" : "";
-            isDryCough_Str = rdBtnYes_DryCough.Checked ? "Yes" : rdBtnNo_DryCough.Checked ? "No" : "";
-            isSoreThroat_Str = rdBtnYes_SoreThroat.Checked ? "Yes" : rdBtnNo_SoreThroat.Checked ? "No" : "";
-            isTirediness_Str = rdBtnYes_Tirediness.Checked ? "Yes" : rdBtnNo_Tiredines.Checked ? "No" : "";
+
+            //*
+            
+            
+
+
+
+            //*/
 
 
             if (File.Exists(currentSectionNumFile))
             {
-                MessageBox.Show("current Section Exist");
+                //MessageBox.Show("current Section Exist");
                 StreamReader sectionFilecontent = File.OpenText(currentSectionNumFile);
                 cntrFromFile = sectionFilecontent.ReadLine();
                 /*
@@ -64,69 +67,83 @@ namespace MyContactTracing
                 */
                 sectionFilecontent.Close();
                 sectionNumber = int.Parse(cntrFromFile);
-                MessageBox.Show("sectionNumber" + sectionNumber.ToString());
+                sectionNumber++;
+                //MessageBox.Show("sectionNumber" + sectionNumber.ToString());
             }
             else
             {
-                MessageBox.Show("current Section NOT Exist");
+                //MessageBox.Show("current Section NOT Exist");
                 sectionNumber = 1;
                 StreamWriter sectionFileconten = File.CreateText(currentSectionNumFile);
                 sectionFileconten.Write(sectionNumber.ToString());
                 sectionFileconten.Close();
-                MessageBox.Show("sectionNumber" + sectionNumber.ToString());
+                //MessageBox.Show("sectionNumber" + sectionNumber.ToString());
             }
 
+            if(isinputsValid())
+            {
+
+                inputGender = rdBtnMale_Gender.Checked ? "Male" : rdBtnFemale_Gender.Checked ? "Female" : "";
+                isFever_Str = rdBtnYes_Fever.Checked ? "Yes" : rdBtnNo_Fever.Checked ? "No" : "";
+                isDryCough_Str = rdBtnYes_DryCough.Checked ? "Yes" : rdBtnNo_DryCough.Checked ? "No" : "";
+                isSoreThroat_Str = rdBtnYes_SoreThroat.Checked ? "Yes" : rdBtnNo_SoreThroat.Checked ? "No" : "";
+                isTirediness_Str = rdBtnYes_Tirediness.Checked ? "Yes" : rdBtnNo_Tiredines.Checked ? "No" : "";
 
                 formContent = "Section " + sectionNumber.ToString() + ":\n"
-                        + "Name: " + tabCh +                txtBxFirstName.Text + tabCh + txtBxMiddleName.Text + tabCh + txtBxLastName.Text + newLineCh
-                        + "Age: " + tabCh +                 txtBxAge.Text + newLineCh
-                        + "Contact Number: " + tabCh +      txtBxContactNum.Text + newLineCh
-                        + "E-Mail: " + tabCh +              txtBxEMail.Text + newLineCh
-                        + "Gender: " + tabCh +              inputGender + newLineCh
-                        + "Date: " + tabCh +                dateDTP.Text + newLineCh
-                        + "Barangay: " + tabCh +            txtBxBarangay.Text + newLineCh + newLineCh
+                            + "Name: " + tabCh + txtBxFirstName.Text + tabCh + txtBxMiddleName.Text + tabCh + txtBxLastName.Text + newLineCh
+                            + "Age: " + tabCh + txtBxAge.Text + newLineCh
+                            + "Contact Number: " + tabCh + txtBxContactNum.Text + newLineCh
+                            + "E-Mail: " + tabCh + txtBxEMail.Text + newLineCh
+                            + "Gender: " + tabCh + inputGender + newLineCh
+                            + "Date: " + tabCh + dateDTP.Text + newLineCh
+                            + "Barangay: " + tabCh + txtBxBarangay.Text + newLineCh + newLineCh
 
-                        + "*Health Condition" + tabCh + newLineCh
-                        + "If Has Fever: " + tabCh +           isFever_Str +  newLineCh
-                        + "If Has Dry Cough " + tabCh +        isDryCough_Str + newLineCh
-                        + "If Has Sore Throat: " + tabCh +     isSoreThroat_Str + newLineCh
-                        + "If Has Tiredines: " + tabCh +       isTirediness_Str + newLineCh + newLineCh
-                        + "END_OF_SECTION_" + sectionNumber.ToString() + newLineCh + newLineCh + newLineCh;
+                            + "*Health Condition" + tabCh + newLineCh
+                            + "If Has Fever: " + tabCh + isFever_Str + newLineCh
+                            + "If Has Dry Cough " + tabCh + isDryCough_Str + newLineCh
+                            + "If Has Sore Throat: " + tabCh + isSoreThroat_Str + newLineCh
+                            + "If Has Tiredines: " + tabCh + isTirediness_Str + newLineCh + newLineCh
+                            + "END_OF_SECTION_" + sectionNumber.ToString() + newLineCh + newLineCh + newLineCh;
 
-            MessageBox.Show(formContent);
+                MessageBox.Show(formContent);
 
+                if (File.Exists(fileName))//fileName = "blasadjals.txt"
+                {
+                    //MessageBox.Show("File Exist");
+                    StreamWriter outputFile = File.AppendText(fileName);
+                    outputFile.WriteLine(formContent);
+                    outputFile.Close();
 
+                    //sectionNumber++;
+                    StreamWriter sectionFileconten = File.CreateText(currentSectionNumFile);
+                    sectionFileconten.Write(sectionNumber.ToString());
+                    sectionFileconten.Close();
+                }
+                else
+                {
+                    //MessageBox.Show("File Not Exist");
+                    //sectionNumber = 1;
+                    StreamWriter outputFile = File.CreateText(fileName);
+                    outputFile.WriteLine(formContent);
+                    outputFile.Close();
 
-            if (File.Exists(fileName))
-            {
-                MessageBox.Show("File Exist");
-                StreamWriter outputFile = File.AppendText(fileName);
-                outputFile.WriteLine(formContent);
-                outputFile.Close();
-
-                sectionNumber++;
-                StreamWriter sectionFileconten = File.CreateText(currentSectionNumFile);
-                sectionFileconten.Write(sectionNumber.ToString());
-                sectionFileconten.Close();
+                    //sectionNumber++;
+                    StreamWriter sectionFileconten = File.CreateText(currentSectionNumFile);
+                    sectionFileconten.Write(sectionNumber.ToString());
+                    sectionFileconten.Close();
+                }
             }
             else
             {
-                MessageBox.Show("File Not Exist");
-                sectionNumber = 1;
-                StreamWriter outputFile = File.CreateText(fileName);
-                outputFile.WriteLine(formContent);
-                outputFile.Close();
-
-                sectionNumber++;
-                StreamWriter sectionFileconten = File.CreateText(currentSectionNumFile);
-                sectionFileconten.Write(sectionNumber.ToString());
-                sectionFileconten.Close();
+                MessageBox.Show("Invalid Input");
+                resetForm();
             }
 
             
 
 
 
+   
 
 
 
@@ -160,10 +177,53 @@ namespace MyContactTracing
         }
 
 
-        /*
+
+        private bool isNotEmptyTextBoxes()
+        {
+            if ((txtBxFirstName.Text != "") && (txtBxFirstName.Text != "") && (txtBxMiddleName.Text != "") && (txtBxLastName.Text != "") && (txtBxAge.Text != "") && (txtBxContactNum.Text != "") && (txtBxBarangay.Text != ""))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //*
         private bool isinputsValid()
         {
+            /*
+            String numstr = "123.45";
 
+            if (numstr.All(char.IsDigit)) //if (numstr.All(char.IsDigit))
+            {
+                MessageBox.Show("Its Digit");
+
+            }
+            else
+            {
+                MessageBox.Show("Not Digit");
+            }
+            */
+
+
+           if (((txtBxFirstName.Text != "") && (txtBxMiddleName.Text != "") && (txtBxLastName.Text != "") && (txtBxAge.Text != "") && (txtBxContactNum.Text != "") && (txtBxBarangay.Text != ""))
+                && (txtBxFirstName.Text.All(char.IsLetter))) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+            return rdBtnMale_Gender.Checked != rdBtnFemale_Gender.Checked ? true :  false;
+            return rdBtnYes_Fever.Checked != rdBtnNo_Fever.Checked ? true : false;
+            return rdBtnYes_DryCough.Checked != rdBtnNo_DryCough.Checked ? true : false;
+            return rdBtnYes_SoreThroat.Checked != rdBtnNo_SoreThroat.Checked ? true : false;
+            return rdBtnYes_Tirediness.Checked != rdBtnNo_Tiredines.Checked ? true : false;
         }
         //*/
 
@@ -196,5 +256,38 @@ namespace MyContactTracing
         {
             resetForm();
         }
+
+        private void keyPress_Letters_Spaces(object sender, KeyPressEventArgs e)
+        {
+            if ((!char.IsLetter(e.KeyChar)) && (!char.IsControl(e.KeyChar)) && (!char.IsWhiteSpace(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void keyPress_Numbers(object sender, KeyPressEventArgs e)
+        {
+            if ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+
+        /*
+         
+
+            if((!char.IsLetter(e.KeyChar)) && (!char.IsControl(e.KeyChar)) && (!char.IsWhiteSpace(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+        */
+
+
+
+
+
+
     }
 }
