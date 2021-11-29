@@ -46,6 +46,11 @@ namespace MyContactTracing
 
         private void saveBtnClick(object sender, EventArgs e)
         {
+
+            if((File.Exists(currentSectionNumFile)) && (!File.Exists(fileName)))
+            {
+                File.Delete(currentSectionNumFile);
+            }
             
           
             if(isFormCompled())
