@@ -30,6 +30,11 @@ namespace MyContactTracing
         String isTirediness_Str = "";
 
 
+        String fileName = "App_records.txt";
+        String currentSectionNumFile = "currentSectionNumber.txt";
+        String cntrFromFile = "";
+
+
         public Form1()
         {
             InitializeComponent();
@@ -37,12 +42,6 @@ namespace MyContactTracing
 
         private void saveBtnClick(object sender, EventArgs e)
         {
-
-
-            //String my_Path = "MyFile.txt";
-            String fileName = "App_records.txt";
-            String currentSectionNumFile = "currentSectionNumber.txt";
-            String cntrFromFile = "";
 
           
             if(isFormCompled())
@@ -292,6 +291,47 @@ namespace MyContactTracing
                 e.Handled = true;
             }
         }
+
+       
+
+        private void btnViewRecords_Click(object sender, EventArgs e)
+        {
+            String line = "";
+
+            StreamReader inputFile = File.OpenText(fileName);
+            while (!inputFile.EndOfStream)
+            {
+                line = inputFile.ReadLine() + "\n";
+                rchTxtBxDisplayRecords.AppendText(line);
+            }
+            //MessageBox.Show("End of File");
+            inputFile.Close();
+
+
+            btnViewRecords.Enabled = false;
+            /*
+            String line = "";
+            for(int i=0; i<100; i++)
+            {
+                line = "Line " + i + "\n";
+                rchTxtBxDisplayRecords.AppendText(line);
+            }
+            */
+
+        }
+
+        private void keyPressrchTxtBxDisplayRecords(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void btnClearDisplay_Click(object sender, EventArgs e)
+        {
+            rchTxtBxDisplayRecords.Clear();
+            //rchTxtBxDisplayRecords.ScrollBars = RichTextBoxScrollBars.None;
+            btnViewRecords.Enabled = true;
+        }
+
 
 
 

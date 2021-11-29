@@ -52,7 +52,7 @@ namespace MyContactTracing
             this.rdBtnMale_Gender = new System.Windows.Forms.RadioButton();
             this.txtBxEMail = new System.Windows.Forms.TextBox();
             this.dateDTP = new System.Windows.Forms.DateTimePicker();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnViewRecords = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +71,8 @@ namespace MyContactTracing
             this.rdBtnYes_SoreThroat = new System.Windows.Forms.RadioButton();
             this.txtBxBarangay = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.rchTxtBxDisplayRecords = new System.Windows.Forms.RichTextBox();
+            this.btnClearDisplay = new System.Windows.Forms.Button();
             this.grpBxFever.SuspendLayout();
             this.grpBxGender.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -296,14 +298,15 @@ namespace MyContactTracing
             this.dateDTP.Size = new System.Drawing.Size(200, 23);
             this.dateDTP.TabIndex = 25;
             // 
-            // btnClear
+            // btnViewRecords
             // 
-            this.btnClear.Location = new System.Drawing.Point(727, 431);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 26;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnViewRecords.Location = new System.Drawing.Point(804, 391);
+            this.btnViewRecords.Name = "btnViewRecords";
+            this.btnViewRecords.Size = new System.Drawing.Size(142, 23);
+            this.btnViewRecords.TabIndex = 26;
+            this.btnViewRecords.Text = "View Rocords";
+            this.btnViewRecords.UseVisualStyleBackColor = true;
+            this.btnViewRecords.Click += new System.EventHandler(this.btnViewRecords_Click);
             // 
             // btnSave
             // 
@@ -322,7 +325,7 @@ namespace MyContactTracing
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(825, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1290, 24);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -469,17 +472,38 @@ namespace MyContactTracing
             this.txtBxBarangay.TabIndex = 30;
             this.txtBxBarangay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_Letters_Spaces);
             // 
+            // rchTxtBxDisplayRecords
+            // 
+            this.rchTxtBxDisplayRecords.Location = new System.Drawing.Point(804, 98);
+            this.rchTxtBxDisplayRecords.Name = "rchTxtBxDisplayRecords";
+            this.rchTxtBxDisplayRecords.Size = new System.Drawing.Size(456, 280);
+            this.rchTxtBxDisplayRecords.TabIndex = 31;
+            this.rchTxtBxDisplayRecords.Text = "";
+            this.rchTxtBxDisplayRecords.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPressrchTxtBxDisplayRecords);
+            // 
+            // btnClearDisplay
+            // 
+            this.btnClearDisplay.Location = new System.Drawing.Point(1157, 392);
+            this.btnClearDisplay.Name = "btnClearDisplay";
+            this.btnClearDisplay.Size = new System.Drawing.Size(103, 23);
+            this.btnClearDisplay.TabIndex = 32;
+            this.btnClearDisplay.Text = "Clear Display";
+            this.btnClearDisplay.UseVisualStyleBackColor = true;
+            this.btnClearDisplay.Click += new System.EventHandler(this.btnClearDisplay_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 478);
+            this.ClientSize = new System.Drawing.Size(1290, 427);
+            this.Controls.Add(this.btnClearDisplay);
+            this.Controls.Add(this.rchTxtBxDisplayRecords);
             this.Controls.Add(this.txtBxBarangay);
             this.Controls.Add(this.grpBxSoreThroat);
             this.Controls.Add(this.grpBxTirediness);
             this.Controls.Add(this.grpBxDryCough);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnViewRecords);
             this.Controls.Add(this.dateDTP);
             this.Controls.Add(this.txtBxEMail);
             this.Controls.Add(this.grpBxGender);
@@ -545,7 +569,7 @@ namespace MyContactTracing
         private System.Windows.Forms.RadioButton rdBtnMale_Gender;
         private System.Windows.Forms.TextBox txtBxEMail;
         private System.Windows.Forms.DateTimePicker dateDTP;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnViewRecords;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -564,6 +588,8 @@ namespace MyContactTracing
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abooutToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.RichTextBox rchTxtBxDisplayRecords;
+        private System.Windows.Forms.Button btnClearDisplay;
     }
 }
 
