@@ -44,44 +44,35 @@ namespace MyContactTracing
             String currentSectionNumFile = "currentSectionNumber.txt";
             String cntrFromFile = "";
 
-
-            //*
-            
-            
-
-
-
-            //*/
-
-
-            if (File.Exists(currentSectionNumFile))
+          
+            if(isFormCompled())
             {
-                //MessageBox.Show("current Section Exist");
-                StreamReader sectionFilecontent = File.OpenText(currentSectionNumFile);
-                cntrFromFile = sectionFilecontent.ReadLine();
-                /*
-                while (!sectionFilecontent.EndOfStream)
+
+                if (File.Exists(currentSectionNumFile))
                 {
+                    //MessageBox.Show("current Section Exist");
+                    StreamReader sectionFilecontent = File.OpenText(currentSectionNumFile);
                     cntrFromFile = sectionFilecontent.ReadLine();
+                    /*
+                    while (!sectionFilecontent.EndOfStream)
+                    {
+                        cntrFromFile = sectionFilecontent.ReadLine();
+                    }
+                    */
+                    sectionFilecontent.Close();
+                    sectionNumber = int.Parse(cntrFromFile);
+                    sectionNumber++;
+                    //MessageBox.Show("sectionNumber" + sectionNumber.ToString());
                 }
-                */
-                sectionFilecontent.Close();
-                sectionNumber = int.Parse(cntrFromFile);
-                sectionNumber++;
-                //MessageBox.Show("sectionNumber" + sectionNumber.ToString());
-            }
-            else
-            {
-                //MessageBox.Show("current Section NOT Exist");
-                sectionNumber = 1;
-                StreamWriter sectionFileconten = File.CreateText(currentSectionNumFile);
-                sectionFileconten.Write(sectionNumber.ToString());
-                sectionFileconten.Close();
-                //MessageBox.Show("sectionNumber" + sectionNumber.ToString());
-            }
-
-            if(isinputsValid())
-            {
+                else
+                {
+                    //MessageBox.Show("current Section NOT Exist");
+                    sectionNumber = 1;
+                    StreamWriter sectionFileconten = File.CreateText(currentSectionNumFile);
+                    sectionFileconten.Write(sectionNumber.ToString());
+                    sectionFileconten.Close();
+                    //MessageBox.Show("sectionNumber" + sectionNumber.ToString());
+                }
 
                 inputGender = rdBtnMale_Gender.Checked ? "Male" : rdBtnFemale_Gender.Checked ? "Female" : "";
                 isFever_Str = rdBtnYes_Fever.Checked ? "Yes" : rdBtnNo_Fever.Checked ? "No" : "";
@@ -107,7 +98,7 @@ namespace MyContactTracing
 
                 MessageBox.Show(formContent);
 
-                if (File.Exists(fileName))//fileName = "blasadjals.txt"
+                if (File.Exists(fileName))
                 {
                     //MessageBox.Show("File Exist");
                     StreamWriter outputFile = File.AppendText(fileName);
@@ -135,44 +126,92 @@ namespace MyContactTracing
             }
             else
             {
-                MessageBox.Show("Invalid Input");
-                resetForm();
+                ifEmptyFieldWarning();
+                MessageBox.Show("Please Complete the Form");
+                resestBackColor();
             }
 
-            
+           
+
+            //resetForm();
+
+        }
 
 
-
-   
-
-
-
-            /*
-            int a;
-            StreamReader inputFile = File.OpenText("App_records.txt");
-            while(!inputFile.EndOfStream)
+        private void ifEmptyFieldWarning()
+        {
+            if (txtBxFirstName.Text == "")
             {
-                inputFile.ReadLine();
-                //MessageBox.Show("Next line...");
+                txtBxFirstName.BackColor = Color.Red;
             }
-            MessageBox.Show("End of File");
-            inputFile.Close();
+            if (txtBxMiddleName.Text == "")
+            {
+                txtBxMiddleName.BackColor = Color.Red;
+            }
+            if (txtBxLastName.Text == "")
+            {
+                txtBxLastName.BackColor = Color.Red;
+            }
+            if (txtBxAge.Text == "")
+            {
+                txtBxAge.BackColor = Color.Red;
+            }
+            if (txtBxContactNum.Text == "")
+            {
+                txtBxContactNum.BackColor = Color.Red;
+            }
+            if (txtBxEMail.Text == "")
+            {
+                txtBxEMail.BackColor = Color.Red;
+            }
+            if (txtBxBarangay.Text == "")
+            {
+                txtBxBarangay.BackColor = Color.Red;
+            }
 
-            //* /
 
 
-            StreamWriter myFileWritter = File.CreateText("App_records.txt");
-            myFileWritter.WriteLine(formContent);
-            myFileWritter.Close();
-            //* /
+            if(rdBtnMale_Gender.Checked == rdBtnFemale_Gender.Checked)
+            {
+                grpBxGender.BackColor = Color.Red;
+            }
 
-            StreamWriter myFileAppend = File.AppendText("App_records.txt");
-            myFileAppend.WriteLine(formContent);
-            myFileAppend.Close();
+            if (rdBtnYes_Fever.Checked == rdBtnNo_Fever.Checked)
+            {
+                grpBxFever.BackColor = Color.Red;
+            }
+            if (rdBtnYes_DryCough.Checked == rdBtnNo_DryCough.Checked)
+            {
+                grpBxDryCough.BackColor = Color.Red;
+            }
+            if (rdBtnYes_SoreThroat.Checked == rdBtnNo_SoreThroat.Checked)
+            {
+                grpBxSoreThroat.BackColor = Color.Red;
+            }
+            if (rdBtnYes_Tirediness.Checked == rdBtnNo_Tiredines.Checked)
+            {
+                grpBxTirediness.BackColor = Color.Red;
+            }
 
-            //*/
+        }
 
-            resetForm();
+
+        private void resestBackColor()
+        {
+            txtBxFirstName.BackColor = Color.White;
+            txtBxMiddleName.BackColor = Color.White;
+            txtBxLastName.BackColor = Color.White;
+            txtBxAge.BackColor = Color.White;
+            txtBxContactNum.BackColor = Color.White;
+            txtBxEMail.BackColor = Color.White;
+            txtBxBarangay.BackColor = Color.White;
+
+
+            grpBxGender.BackColor = Color.White;
+            grpBxFever.BackColor = Color.White;
+            grpBxDryCough.BackColor = Color.White;
+            grpBxSoreThroat.BackColor = Color.White;
+            grpBxTirediness.BackColor = Color.White;
 
         }
 
@@ -191,25 +230,13 @@ namespace MyContactTracing
         }
 
         //*
-        private bool isinputsValid()
+        private bool isFormCompled()
         {
-            /*
-            String numstr = "123.45";
-
-            if (numstr.All(char.IsDigit)) //if (numstr.All(char.IsDigit))
-            {
-                MessageBox.Show("Its Digit");
-
-            }
-            else
-            {
-                MessageBox.Show("Not Digit");
-            }
-            */
-
-
+            
            if (((txtBxFirstName.Text != "") && (txtBxMiddleName.Text != "") && (txtBxLastName.Text != "") && (txtBxAge.Text != "") && (txtBxContactNum.Text != "") && (txtBxBarangay.Text != ""))
-                && (txtBxFirstName.Text.All(char.IsLetter))) 
+                && ((rdBtnMale_Gender.Checked != rdBtnFemale_Gender.Checked) &&
+                (rdBtnYes_Fever.Checked != rdBtnNo_Fever.Checked) && (rdBtnYes_DryCough.Checked != rdBtnNo_DryCough.Checked) 
+                && (rdBtnYes_SoreThroat.Checked != rdBtnNo_SoreThroat.Checked) && (rdBtnYes_Tirediness.Checked != rdBtnNo_Tiredines.Checked))) 
             {
                 return true;
             }
@@ -217,13 +244,6 @@ namespace MyContactTracing
             {
                 return false;
             }
-
-
-            return rdBtnMale_Gender.Checked != rdBtnFemale_Gender.Checked ? true :  false;
-            return rdBtnYes_Fever.Checked != rdBtnNo_Fever.Checked ? true : false;
-            return rdBtnYes_DryCough.Checked != rdBtnNo_DryCough.Checked ? true : false;
-            return rdBtnYes_SoreThroat.Checked != rdBtnNo_SoreThroat.Checked ? true : false;
-            return rdBtnYes_Tirediness.Checked != rdBtnNo_Tiredines.Checked ? true : false;
         }
         //*/
 
@@ -287,6 +307,33 @@ namespace MyContactTracing
 
 
 
+
+
+
+        /*
+        int a;
+        StreamReader inputFile = File.OpenText("App_records.txt");
+        while(!inputFile.EndOfStream)
+        {
+            inputFile.ReadLine();
+            //MessageBox.Show("Next line...");
+        }
+        MessageBox.Show("End of File");
+        inputFile.Close();
+
+        //* /
+
+
+        StreamWriter myFileWritter = File.CreateText("App_records.txt");
+        myFileWritter.WriteLine(formContent);
+        myFileWritter.Close();
+        //* /
+
+        StreamWriter myFileAppend = File.AppendText("App_records.txt");
+        myFileAppend.WriteLine(formContent);
+        myFileAppend.Close();
+
+        //*/
 
 
     }

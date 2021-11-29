@@ -1,0 +1,95 @@
+Section 1:
+Name: 	sdasd	sadas	sfasd
+Age: 	12
+Contact Number: 	213
+E-Mail: 	asdasf
+Gender: 	Male
+Date: 	Monday, November 29, 2021
+Barangay: 	asdasf
+
+*Health Condition	
+If Has Fever: 	No
+If Has Dry Cough 	No
+If Has Sore Throat: 	No
+If Has Tiredines: 	No
+
+END_OF_SECTION_1
+
+
+
+Section 2:
+Name: 	aszdas	asdas	asdas
+Age: 	123
+Contact Number: 	1232
+E-Mail: 	sadas
+Gender: 	Female
+Date: 	Monday, November 29, 2021
+Barangay: 	fsda
+
+*Health Condition	
+If Has Fever: 	No
+If Has Dry Cough 	No
+If Has Sore Throat: 	No
+If Has Tiredines: 	No
+
+END_OF_SECTION_2
+
+
+
+Section 3:
+Name: 	sdfsdf	sdfs	sdffds
+Age: 	123
+Contact Number: 	12424
+E-Mail: 	ghfdggd
+Gender: 	Female
+Date: 	Monday, November 29, 2021
+Barangay: 	sdasf
+
+*Health Condition	
+If Has Fever: 	No
+If Has Dry Cough 	No
+If Has Sore Throat: 	No
+If Has Tiredines: 	No
+
+END_OF_SECTION_3
+
+
+
+Section 4:
+Name: 	sadas	asds	dgsf
+Age: 	554
+Contact Number: 	123
+E-Mail: 	sada
+Gender: 	Male
+Date: 	Monday, November 29, 2021
+Barangay: 	sadas
+
+*Health Condition	
+If Has Fever: 	No
+If Has Dry Cough 	No
+If Has Sore Throat: 	No
+If Has Tiredines: 	No
+
+END_OF_SECTION_4
+
+
+
+Section 5:
+Name: 	asfas	dfdsf	sdfds
+Age: 	1234
+Contact Number: 	123
+E-Mail: 	wqe
+Gender: 	Male
+Date: 	Monday, November 29, 2021
+Barangay: 	sdsf
+
+*Health Condition	
+If Has Fever: 	No
+If Has Dry Cough 	No
+If Has Sore Throat: 	No
+If Has Tiredines: 	No
+
+END_OF_SECTION_5
+
+
+
