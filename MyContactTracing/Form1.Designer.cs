@@ -290,6 +290,7 @@ namespace MyContactTracing
             this.txtBxEMail.Name = "txtBxEMail";
             this.txtBxEMail.Size = new System.Drawing.Size(242, 23);
             this.txtBxEMail.TabIndex = 24;
+            this.txtBxEMail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPres_EMail);
             // 
             // dateDTP
             // 
@@ -337,19 +338,20 @@ namespace MyContactTracing
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.newRecordFrom);
             // 
             // newRecordToolStripMenuItem
             // 
             this.newRecordToolStripMenuItem.Name = "newRecordToolStripMenuItem";
-            this.newRecordToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.newRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newRecordToolStripMenuItem.Text = "New Record";
+            this.newRecordToolStripMenuItem.Click += new System.EventHandler(this.newRecordFrom);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -362,8 +364,9 @@ namespace MyContactTracing
             // abooutToolStripMenuItem
             // 
             this.abooutToolStripMenuItem.Name = "abooutToolStripMenuItem";
-            this.abooutToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.abooutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abooutToolStripMenuItem.Text = "Aboout";
+            this.abooutToolStripMenuItem.Click += new System.EventHandler(this.abooutToolStripMenuItem_Click);
             // 
             // grpBxDryCough
             // 
@@ -466,11 +469,11 @@ namespace MyContactTracing
             // 
             // txtBxBarangay
             // 
-            this.txtBxBarangay.Location = new System.Drawing.Point(403, 197);
+            this.txtBxBarangay.Location = new System.Drawing.Point(393, 197);
             this.txtBxBarangay.Name = "txtBxBarangay";
             this.txtBxBarangay.Size = new System.Drawing.Size(274, 23);
             this.txtBxBarangay.TabIndex = 30;
-            this.txtBxBarangay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_Letters_Spaces);
+            this.txtBxBarangay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_Letters_Spaces_Numbers_Period);
             // 
             // rchTxtBxDisplayRecords
             // 

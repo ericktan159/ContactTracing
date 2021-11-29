@@ -38,11 +38,15 @@ namespace MyContactTracing
         public Form1()
         {
             InitializeComponent();
+
+            dateDTP.MinDate = DateTime.Now;
+            dateDTP.MaxDate = DateTime.Now;
+
         }
 
         private void saveBtnClick(object sender, EventArgs e)
         {
-
+            
           
             if(isFormCompled())
             {
@@ -122,6 +126,8 @@ namespace MyContactTracing
                     sectionFileconten.Write(sectionNumber.ToString());
                     sectionFileconten.Close();
                 }
+
+                resetForm();
             }
             else
             {
@@ -284,6 +290,23 @@ namespace MyContactTracing
             }
         }
 
+        private void keyPress_Letters_Spaces_Numbers_Period(object sender, KeyPressEventArgs e)
+        {
+            if ((!char.IsLetter(e.KeyChar)) && (!char.IsControl(e.KeyChar)) && (!char.IsWhiteSpace(e.KeyChar)) && (!char.IsNumber(e.KeyChar) && (e.KeyChar.ToString() != ".")))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void keyPres_EMail(object sender, KeyPressEventArgs e)
+        {
+            if ((!char.IsLetter(e.KeyChar)) && (!char.IsControl(e.KeyChar)) && (!char.IsWhiteSpace(e.KeyChar)) && (!char.IsNumber(e.KeyChar))
+                && (e.KeyChar.ToString() != ".") && (e.KeyChar.ToString() != "@") && (e.KeyChar.ToString() != "_"))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void keyPress_Numbers(object sender, KeyPressEventArgs e)
         {
             if ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar)))
@@ -296,28 +319,29 @@ namespace MyContactTracing
 
         private void btnViewRecords_Click(object sender, EventArgs e)
         {
-            String line = "";
 
-            StreamReader inputFile = File.OpenText(fileName);
-            while (!inputFile.EndOfStream)
+            if (File.Exists(fileName))
             {
-                line = inputFile.ReadLine() + "\n";
-                rchTxtBxDisplayRecords.AppendText(line);
+                String line = "";
+
+                StreamReader inputFile = File.OpenText(fileName);
+                while (!inputFile.EndOfStream)
+                {
+                    line = inputFile.ReadLine() + "\n";
+                    rchTxtBxDisplayRecords.AppendText(line);
+                }
+                //MessageBox.Show("End of File");
+                inputFile.Close();
+
+
+                btnViewRecords.Enabled = false;
             }
-            //MessageBox.Show("End of File");
-            inputFile.Close();
-
-
-            btnViewRecords.Enabled = false;
-            /*
-            String line = "";
-            for(int i=0; i<100; i++)
+            else
             {
-                line = "Line " + i + "\n";
-                rchTxtBxDisplayRecords.AppendText(line);
+                MessageBox.Show("No Records has been save yet");
             }
-            */
-
+                
+           
         }
 
         private void keyPressrchTxtBxDisplayRecords(object sender, KeyPressEventArgs e)
@@ -331,6 +355,21 @@ namespace MyContactTracing
             //rchTxtBxDisplayRecords.ScrollBars = RichTextBoxScrollBars.None;
             btnViewRecords.Enabled = true;
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void abooutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("By Tan, Frederick B. ", "Contact Tracing App");
+        }
+
+
+
+
+
 
 
 
